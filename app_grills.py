@@ -138,24 +138,29 @@ st.markdown(f"""
         background-color: #0055AA !important;
     }}
 
-    /* BOTÃO WHATSAPP ALPHA */
-    .stButton>button {{
-        background: linear-gradient(135deg, #D4AF37 0%, #F0D575 100%);
+    /* ESTILIZAÇÃO DO BOTÃO (ALVO: STLINKBUTTON E STBUTTON) */
+    div.stButton > button, div.stLinkButton > a {{
+        background: linear-gradient(135deg, #D4AF37 0%, #F0D575 100%) !important;
         color: #000000 !important;
         font-weight: 800 !important;
-        border-radius: 50px;
-        border: none;
-        padding: 20px;
-        width: 100%;
-        height: 65px;
-        text-transform: uppercase;
-        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-        transition: all 0.3s ease;
+        border-radius: 50px !important;
+        border: none !important;
+        padding: 20px !important;
+        width: 100% !important;
+        height: 65px !important;
+        text-transform: uppercase !important;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important;
+        transition: all 0.3s ease !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
     }}
     
-    .stButton>button:hover {{
-        transform: scale(1.02);
-        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+    div.stButton > button:hover, div.stLinkButton > a:hover {{
+        transform: scale(1.02) !important;
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6) !important;
+        color: #000000 !important;
     }}
 
     /* CARTÕES DE PORTFÓLIO COM EFEITO HOVER ALPHA */
@@ -258,13 +263,11 @@ numero_doutora = "5551980376259"
 texto_base = (f"Olá Dra. Raisa! Realizei uma simulação no site 'Jóias Dentais'.\n\n*Serviço:* {tipo_servico}\n*Material/Opção:* {material}\n*Quantidade:* {quantidade}\n*Valor Estimado:* R$ {estimativa_total:,.2f}\n\n*Cliente:* {nome_cliente}\n*Dúvida:* {obs_cliente}")
 url_whatsapp = f"https://wa.me/{numero_doutora}?text={texto_base.replace(' ', '%20').replace('\n', '%0A')}"
 
-# CORREÇÃO ALPHA: JS PARA ABRIR EM NOVA ABA E EVITAR ERRO DE REFUSA DO NAVEGADOR
-if st.button("ENVIAR PEDIDO PARA O WHATSAPP"):
-    if nome_cliente:
-        js = f"window.open('{url_whatsapp}', '_blank').focus();"
-        st.markdown(f'<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" onload="{js}">', unsafe_allow_html=True)
-        st.success("Abrindo conversa no WhatsApp...")
-    else:
+# LÓGICA DO BOTÃO: Uso de st.link_button para garantir abertura em nova aba sem erro de conexão
+if nome_cliente:
+    st.link_button("ENVIAR PEDIDO PARA O WHATSAPP", url_whatsapp)
+else:
+    if st.button("ENVIAR PEDIDO PARA O WHATSAPP"):
         st.error("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!")
 
 # --- 7. SEÇÃO 3: GALERIA ---
