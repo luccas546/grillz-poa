@@ -258,10 +258,12 @@ numero_doutora = "5551980376259"
 texto_base = (f"Olá Dra. Raisa! Realizei uma simulação no site 'Jóias Dentais'.\n\n*Serviço:* {tipo_servico}\n*Material/Opção:* {material}\n*Quantidade:* {quantidade}\n*Valor Estimado:* R$ {estimativa_total:,.2f}\n\n*Cliente:* {nome_cliente}\n*Dúvida:* {obs_cliente}")
 url_whatsapp = f"https://wa.me/{numero_doutora}?text={texto_base.replace(' ', '%20').replace('\n', '%0A')}"
 
+# CORREÇÃO ALPHA: JS PARA ABRIR EM NOVA ABA E EVITAR ERRO DE REFUSA DO NAVEGADOR
 if st.button("ENVIAR PEDIDO PARA O WHATSAPP"):
     if nome_cliente:
-        st.markdown(f'<meta http-equiv="refresh" content="0;URL=\'{url_whatsapp}\'" />', unsafe_allow_html=True)
-        st.success("Redirecionando...")
+        js = f"window.open('{url_whatsapp}', '_blank').focus();"
+        st.markdown(f'<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" onload="{js}">', unsafe_allow_html=True)
+        st.success("Abrindo conversa no WhatsApp...")
     else:
         st.error("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!")
 
