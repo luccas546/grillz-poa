@@ -266,8 +266,12 @@
 
     function send() {
         const n = document.getElementById('nome').value;
+        const o = document.getElementById('obs').value;
         if(!n) { alert("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!"); return; }
-        const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}`;
+        
+        // CORREÇÃO AQUI: Agora a dúvida/obs está incluída na mensagem final
+        const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nMaterial: ${document.getElementById('material').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}\nDúvida/Obs: ${o ? o : "Nenhuma"}`;
+        
         window.open(`https://wa.me/5551980376259?text=${encodeURIComponent(msg)}`);
     }
     update();
