@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jóias Dentais | Grillz & Piercing Porto Alegre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* REPRODUÇÃO EXATA DO CSS QUE VOCÊ ESCREVEU NO PYTHON */
+        body {
+            background-color: #000000;
+            color: #E0E0E0;
+            font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* CONTAINER (Simulando o centered layout do Streamlit) */
+        .main {
+            max-width: 730px; /* Largura padrão do layout centered do Streamlit */
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* LÓGICA DE FUNDO ALPHA BLINDADA (IGUAL AO SEU) */
+        .bg-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+        }
+
+        @media (min-width: 1024px) {
+            .bg-layer {
+                background-image: 
+                    radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%),
+                    linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%),
+                    url("imagemfundogrillz1.jpg"),
+                    url("imagemfundogrillz2.jpg");
+                background-position: center top, center, top left, bottom right;
+                background-repeat: no-repeat;
+                background-size: cover, cover, auto, auto;
+                background-attachment: fixed;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .bg-layer {
+                background-image: 
+                    linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 35%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.9) 100%),
+                    url("imagemfundogrillz1.jpg"),
+                    url("imagemfundogrillz2.jpg");
+                background-position: center, top center, bottom center;
+                background-repeat: no-repeat;
+                background-size: 100% 100%, 100% auto, 100% auto;
+                /* Corrigido para a segunda imagem aparecer no scroll */
+                background-attachment: scroll; 
+            }
+        }
+
+        /* TÍTULOS (ESTILO DOURADO QUE VOCÊ CRIOU) */
+        h1, h3 {
+            color: #D4AF37 !important;
+            font-weight: 900 !important;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.9);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        h3 { margin-top: 2rem !important; font-size: 1.5rem; }
+
+        /* ESTILO DOS WIDGETS (IGUAL AO STREAMLIT) */
+        label {
+            color: #B8860B !important;
+            font-weight: 700 !important;
+            text-transform: uppercase;
+            font-size: 0.85rem !important;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        select, input {
+            background-color: rgba(30, 30, 30, 0.95) !important;
+            border: 1px solid #D4AF37 !important;
+            border-radius: 8px !important;
+            color: #FFFFFF !important;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        /* COLUNAS (st.columns) */
+        .stColumns {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .stColumn { flex: 1; }
+
+        @media (max-width: 600px) {
+            .stColumns { flex-direction: column; }
+        }
+
+        /* BOTÃO (O SEU GRADIENTE) */
+        .stButton {
+            background: linear-gradient(135deg, #D4AF37 0%, #F0D575 100%) !important;
+            color: #000000 !important;
+            font-weight: 800 !important;
+            border-radius: 50px !important;
+            padding: 18px !important;
+            width: 100% !important;
+            text-transform: uppercase !important;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4) !important;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+        .stButton:hover { transform: scale(1.02); }
+
+        /* PORTFÓLIO (EFEITO HOVER ALPHA QUE VOCÊ CRIOU) */
+        .portfolio-card {
+            background-color: rgba(10, 10, 10, 0.9);
+            border: 2px solid #D4AF37;
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .portfolio-card:hover { transform: scale(1.03); border-color: #F0D575; }
+        .portfolio-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-bottom: 2px solid #D4AF37; }
+        .portfolio-details { padding: 1.5rem; }
+        .portfolio-title { color: #D4AF37; font-weight: bold; font-size: 1.2rem; }
+        .portfolio-feedback { color: #FFFFFF; font-style: italic; font-size: 0.9rem; opacity: 0.8; }
+
+        /* ALERTA DE PREÇO (st.info) */
+        .stInfo {
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 1px solid #D4AF37;
+            color: #D4AF37;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 1.5rem;
+        }
+
+        hr { border: 0; height: 1px; background: linear-gradient(90deg, transparent, #D4AF37, transparent); margin: 3rem 0; }
+    </style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+
+<div class="main">
+    <h1>💎 Jóias Dentais</h1>
+    <p style="text-align: center; font-size: 1.2rem; color: #B0B0B0;">Estética de alto padrão com Grillz e Piercings premium em Porto Alegre.</p>
+
+    <h3>1. Simule o seu Projeto</h3>
+    <div class="stColumns">
+        <div class="stColumn">
+            <label>Tipo de serviço:</label>
+            <select id="servico" onchange="update()">
+                <option>Piercings Dentais (Cristais)</option>
+                <option>Cap (1 dente)</option>
+                <option>Mini Grillz (2 dentes)</option>
+                <option>Limpeza</option>
+            </select>
+
+            <label id="label-mat">Quantidade de Cristais:</label>
+            <select id="material" onchange="calc()"></select>
+        </div>
+        <div class="stColumn">
+            <div id="box-qtd">
+                <label>Quantidade de peças:</label>
+                <input type="number" id="qtd" value="1" min="1" max="10" oninput="calc()">
+            </div>
+            <div class="stInfo" id="total">💰 Investimento Estimado: R$ 180,00</div>
+        </div>
+    </div>
+
+    <h3>2. Agendar Avaliação Especializada</h3>
+    <div class="stColumns">
+        <div class="stColumn">
+            <label>Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome...">
+        </div>
+        <div class="stColumn">
+            <label>Alguma dúvida específica?</label>
+            <input type="text" id="obs" placeholder="Ex: Quanto tempo dura?">
+        </div>
+    </div>
+
+    <button class="stButton" onclick="send()">ENVIAR PEDIDO PARA O WHATSAPP</button>
+
+    <hr>
+
+    <h3>📸 Galeria de Resultados Reais</h3>
+    <div class="stColumns">
+        <div class="stColumn">
+            <div class="portfolio-card">
+                <img src="paciente1 (1).jpeg">
+                <div class="portfolio-details">
+                    <div class="portfolio-title">Design Piercing Luxury</div>
+                    <div class="portfolio-feedback">"Aplicação de cristais com brilho máximo."</div>
+                </div>
+            </div>
+        </div>
+        <div class="stColumn">
+            <div class="portfolio-card">
+                <img src="paciente1 (2).jpeg">
+                <div class="portfolio-details">
+                    <div class="portfolio-title">Grillz Silver Custom</div>
+                    <div class="portfolio-feedback">"Peça personalizada em Prata 950."</div>
+                </div>
+            </div>
+        </div>
+        <div class="stColumn">
+            <div class="portfolio-card">
+                <img src="paciente1 (3).jpeg">
+                <div class="portfolio-details">
+                    <div class="portfolio-title">Procedimento VIP Combo</div>
+                    <div class="portfolio-feedback">"Mix de estética dental para um sorriso imponente."</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p style="text-align: center; color: #444; font-size: 0.8rem; margin-top: 3rem;">Tecnologia e Performance por Alpha Tech | 2026</p>
+</div>
+
+<script>
+    const precos = {
+        "Piercings Dentais (Cristais)": {"1 ou 2 cristais": 180, "3 a 6 cristais": 260, "7 a 10 cristais": 320, "Mais de 10 cristais": 450},
+        "Cap (1 dente)": {"MCO (Dourado ou Prateado)": 500, "Prata 950": 600, "Banhado a Ouro": 650, "Cravejado (Zircônia com Prata)": 950, "Cravejado e Banhado": 1150, "Ouro Maciço": 3000},
+        "Mini Grillz (2 dentes)": {"MCO (Dourado ou Prateado)": 600, "Prata 950": 650, "Banhado a Ouro": 700, "Cravejado (Zircônia com Prata)": 1100, "Cravejado e Banhado": 1250, "Ouro Maciço": 3200},
+        "Limpeza": {"Procedimento Clínico": 250}
+    };
+
+    function update() {
+        const s = document.getElementById('servico').value;
+        const m = document.getElementById('material');
+        const l = document.getElementById('label-mat');
+        const b = document.getElementById('box-qtd');
+        m.innerHTML = '';
+        if(s === "Piercings Dentais (Cristais)") { l.innerText = "Quantidade de Cristais:"; b.style.display = 'none'; }
+        else if(s === "Limpeza") { l.innerText = "Material:"; b.style.display = 'none'; }
+        else { l.innerText = "Material de preferência:"; b.style.display = 'block'; }
+        Object.keys(precos[s]).forEach(x => { let o = document.createElement('option'); o.text = x; m.add(o); });
+        calc();
+    }
+
+    function calc() {
+        const s = document.getElementById('servico').value;
+        const m = document.getElementById('material').value;
+        const q = document.getElementById('qtd').value;
+        let v = precos[s][m];
+        if(s.includes("dente")) v *= q;
+        document.getElementById('total').innerText = `💰 Investimento Estimado: R$ ${v.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
+    }
+
+    function send() {
+        const n = document.getElementById('nome').value;
+        if(!n) { alert("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!"); return; }
+        const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}`;
+        window.open(`https://wa.me/5551980376259?text=${encodeURIComponent(msg)}`);
+    }
+    update();
+</script>
+</body>
+</html>
