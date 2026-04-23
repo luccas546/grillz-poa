@@ -37,8 +37,8 @@
                 background-image: 
                     radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,1) 100%),
                     linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.9) 100%),
-                    url("imagemfundogrillz1.jpg"),
-                    url("imagemfundogrillz2.jpg");
+                    url("imagemfundogrillz111.jpg"),
+                    url("imagemfundogrillz222.jpg");
                 background-position: center top, center, top left, bottom right;
                 background-repeat: no-repeat;
                 background-size: cover, cover, auto, auto;
@@ -50,12 +50,11 @@
             .bg-layer {
                 background-image: 
                     linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 15%, rgba(0,0,0,0) 35%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.9) 100%),
-                    url("imagemfundogrillz1.jpg"),
-                    url("imagemfundogrillz2.jpg");
+                    url("imagemfundogrillz111.jpg"),
+                    url("imagemfundogrillz222.jpg");
                 background-position: center, top center, bottom center;
                 background-repeat: no-repeat;
                 background-size: 100% 100%, 100% auto, 100% auto;
-                /* Corrigido para a segunda imagem aparecer no scroll */
                 background-attachment: scroll; 
             }
         }
@@ -266,9 +265,12 @@
 
     function send() {
         const n = document.getElementById('nome').value;
-        const o = document.getElementById('obs').value;
+        const d = document.getElementById('obs').value; // CORREÇÃO: Captura o campo de dúvida
         if(!n) { alert("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!"); return; }
-        const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}\nDúvida/Obs: ${o ? o : "Nenhuma"}`;
+        
+        // CORREÇÃO: Mensagem montada com a dúvida incluída
+        const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}\nDúvida: ${d || "Não informada"}`;
+        
         window.open(`https://wa.me/5551980376259?text=${encodeURIComponent(msg)}`);
     }
     update();
