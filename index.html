@@ -201,6 +201,7 @@
     <hr>
 
     <h3>📸 Galeria de Resultados Reais</h3>
+    
     <div class="stColumns">
         <div class="stColumn">
             <div class="portfolio-card">
@@ -229,6 +230,28 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="stColumns">
+        <div class="stColumn">
+            <div class="portfolio-card">
+                <img src="paciente4.jpeg">
+                <div class="portfolio-details">
+                    <div class="portfolio-title">Custom Grillz Design</div>
+                    <div class="portfolio-feedback">"Estética e exclusividade em cada detalhe."</div>
+                </div>
+            </div>
+        </div>
+        <div class="stColumn">
+            <div class="portfolio-card">
+                <img src="paciente5.jpeg">
+                <div class="portfolio-details">
+                    <div class="portfolio-title">Crystal Piercing Shine</div>
+                    <div class="portfolio-feedback">"O brilho que seu sorriso merece."</div>
+                </div>
+            </div>
+        </div>
+        <div class="stColumn" style="border: none; background: none;"></div>
     </div>
 
     <p style="text-align: center; color: #444; font-size: 0.8rem; margin-top: 3rem;">Tecnologia e Performance por Alpha Tech | 2026</p>
@@ -269,7 +292,6 @@
         const o = document.getElementById('obs').value;
         if(!n) { alert("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!"); return; }
         
-        // CORREÇÃO AQUI: Agora a dúvida/obs está incluída na mensagem final
         const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nMaterial: ${document.getElementById('material').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}\nDúvida/Obs: ${o ? o : "Nenhuma"}`;
         
         window.open(`https://wa.me/5551980376259?text=${encodeURIComponent(msg)}`);
