@@ -55,7 +55,6 @@
                 background-position: center, top center, bottom center;
                 background-repeat: no-repeat;
                 background-size: 100% 100%, 100% auto, 100% auto;
-                /* Corrigido para a segunda imagem aparecer no scroll */
                 background-attachment: scroll; 
             }
         }
@@ -291,9 +290,7 @@
         const n = document.getElementById('nome').value;
         const o = document.getElementById('obs').value;
         if(!n) { alert("Alpha, informe o nome para que a Dra. possa dar o atendimento exclusivo!"); return; }
-        
         const msg = `Olá Dra. Raisa! Simulação site:\nServiço: ${document.getElementById('servico').value}\nMaterial: ${document.getElementById('material').value}\nValor: ${document.getElementById('total').innerText}\nCliente: ${n}\nDúvida/Obs: ${o ? o : "Nenhuma"}`;
-        
         window.open(`https://wa.me/5551980376259?text=${encodeURIComponent(msg)}`);
     }
     update();
