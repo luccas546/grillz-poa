@@ -94,6 +94,7 @@
             display: flex;
             gap: 1.5rem;
             margin-bottom: 1rem;
+            align-items: stretch;
         }
         .stColumn { flex: 1; }
 
@@ -125,10 +126,13 @@
             margin-bottom: 2.5rem;
             overflow: hidden;
             transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .portfolio-card:hover { transform: scale(1.03); border-color: #F0D575; }
         .portfolio-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-bottom: 2px solid #D4AF37; }
-        .portfolio-details { padding: 1.5rem; }
+        .portfolio-details { padding: 1.5rem; flex-grow: 1; }
         .portfolio-title { color: #D4AF37; font-weight: bold; font-size: 1.2rem; }
         .portfolio-feedback { color: #FFFFFF; font-style: italic; font-size: 0.9rem; opacity: 0.8; }
 
