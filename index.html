@@ -168,6 +168,7 @@
                 <option>Piercings Dentais (Cristais)</option>
                 <option>Cap (1 dente)</option>
                 <option>Mini Grillz (2 dentes)</option>
+                <option>Modificação Dental (Dentes de Vampiro)</option>
                 <option>Limpeza</option>
             </select>
 
@@ -176,7 +177,7 @@
         </div>
         <div class="stColumn">
             <div id="box-qtd">
-                <label>Quantidade de peças:</label>
+                <label id="label-qtd">Quantidade de peças:</label>
                 <input type="number" id="qtd" value="1" min="1" max="10" oninput="calc()">
             </div>
             <div class="stInfo" id="total">💰 Investimento Estimado: R$ 180,00</div>
@@ -250,7 +251,15 @@
                 </div>
             </div>
         </div>
-        <div class="stColumn" style="border: none; background: none;"></div>
+        <div class="stColumn">
+            <div class="portfolio-card">
+                <img src="paciente6.jpeg">
+                <div class="portfolio-details">
+                    <div class="portfolio-title">Vamp Style Modification</div>
+                    <div class="portfolio-feedback">"Resina estética de alta durabilidade e realismo."</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <p style="text-align: center; color: #444; font-size: 0.8rem; margin-top: 3rem;">Tecnologia e Performance por Alpha Tech | 2026</p>
@@ -261,6 +270,7 @@
         "Piercings Dentais (Cristais)": {"1 ou 2 cristais": 180, "3 a 6 cristais": 260, "7 a 10 cristais": 320, "Mais de 10 cristais": 450},
         "Cap (1 dente)": {"MCO (Dourado ou Prateado)": 500, "Prata 950": 600, "Banhado a Ouro": 650, "Cravejado (Zircônia com Prata)": 950, "Cravejado e Banhado": 1150, "Ouro Maciço": 3000},
         "Mini Grillz (2 dentes)": {"MCO (Dourado ou Prateado)": 600, "Prata 950": 650, "Banhado a Ouro": 700, "Cravejado (Zircônia com Prata)": 1100, "Cravejado e Banhado": 1250, "Ouro Maciço": 3200},
+        "Modificação Dental (Dentes de Vampiro)": {"Resina Estética Premium": 250},
         "Limpeza": {"Procedimento Clínico": 250}
     };
 
@@ -269,10 +279,28 @@
         const m = document.getElementById('material');
         const l = document.getElementById('label-mat');
         const b = document.getElementById('box-qtd');
+        const lq = document.getElementById('label-qtd');
         m.innerHTML = '';
-        if(s === "Piercings Dentais (Cristais)") { l.innerText = "Quantidade de Cristais:"; b.style.display = 'none'; }
-        else if(s === "Limpeza") { l.innerText = "Material:"; b.style.display = 'none'; }
-        else { l.innerText = "Material de preferência:"; b.style.display = 'block'; }
+        
+        if(s === "Piercings Dentais (Cristais)") { 
+            l.innerText = "Quantidade de Cristais:"; 
+            b.style.display = 'none'; 
+        }
+        else if(s === "Limpeza") { 
+            l.innerText = "Material:"; 
+            b.style.display = 'none'; 
+        }
+        else if(s === "Modificação Dental (Dentes de Vampiro)") {
+            l.innerText = "Material:";
+            lq.innerText = "Quantidade de Pares:";
+            b.style.display = 'block';
+        }
+        else { 
+            l.innerText = "Material de preferência:"; 
+            lq.innerText = "Quantidade de peças:";
+            b.style.display = 'block'; 
+        }
+        
         Object.keys(precos[s]).forEach(x => { let o = document.createElement('option'); o.text = x; m.add(o); });
         calc();
     }
@@ -282,7 +310,9 @@
         const m = document.getElementById('material').value;
         const q = document.getElementById('qtd').value;
         let v = precos[s][m];
-        if(s.includes("dente")) v *= q;
+        
+        if(s.includes("dente") || s.includes("Vampiro")) v *= q;
+        
         document.getElementById('total').innerText = `💰 Investimento Estimado: R$ ${v.toLocaleString('pt-BR', {minimumFractionDigits: 2})}`;
     }
 
