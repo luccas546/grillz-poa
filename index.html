@@ -377,16 +377,20 @@ textarea{resize:vertical;min-height:90px}
 
 /* Rodapé */
 .ftr{border-top:1px solid var(--line);padding-block:64px 40px;font-size:15px;color:var(--ash);background:rgba(0,0,0,.6)}
-.ftr-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;align-items:flex-start}
-.ftr-top img{height:120px;width:auto}
-.ftr-brand{display:grid;gap:18px;max-width:340px}
-.ftr-brand p{font-family:var(--f-display);font-style:italic;font-size:clamp(24px,2.4vw,30px);line-height:1.2;color:var(--pearl)}
+.ftr-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.9fr);gap:40px 72px;align-items:center}
+.ftr-top img{height:96px;width:auto}
+.ftr-brand{display:grid;gap:16px;justify-items:start}
+.ftr-brand p{font-family:var(--f-display);font-style:italic;font-size:clamp(22px,2.2vw,28px);line-height:1.2;color:var(--pearl);max-width:20ch}
 @media (min-width:761px){.ftr{padding-bottom:110px}}
-.ftr-cols{display:flex;flex-wrap:wrap;gap:48px}
-.ftr-cols div{display:grid;gap:6px;align-content:start}
-.ftr-cols strong{color:var(--pearl);font-weight:500}
+.ftr-cols{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.3fr) minmax(0,1.1fr);gap:32px;border-left:1px solid var(--line);padding-left:48px}
+.ftr-cols div{display:grid;gap:8px;align-content:start;min-width:0}
+.ftr-cols strong{color:var(--pearl);font-weight:500;margin-bottom:4px}
 .ftr-cols a{text-decoration:none}
 .ftr-cols a:hover{color:var(--pearl)}
+.ftr-cols .who{display:grid;gap:2px;color:#cfced5}
+.ftr-cols .who small{font-size:13px;color:var(--ash)}
+@media (max-width:1000px){.ftr-top{grid-template-columns:1fr}.ftr-cols{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:32px}}
+@media (max-width:640px){.ftr-cols{grid-template-columns:1fr 1fr;gap:28px 20px}.ftr-cols div:nth-child(2){grid-column:1/-1;order:3}.ftr-brand{justify-items:start}.ftr-bottom{flex-direction:column}}
 .ftr-bottom{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px}
 
 /* Botão do assistente */
@@ -780,8 +784,8 @@ textarea{resize:vertical;min-height:90px}
       <div class="ftr-brand"><img src="assets/logo-branco.png" alt="Odontologia Riachuelo" width="122" height="120"><p>Odontologia feita com amor e cuidado em cada detalhe.</p></div>
       <div class="ftr-cols">
         <div><strong>Contato</strong><span data-cfg="whatsappFmt">(51) 98037-6259</span><a href="https://www.instagram.com/odontologiariachuelo/" target="_blank" rel="noopener">Instagram</a></div>
-        <div><strong>Endereço</strong><span data-cfg="endereco">Rua Riachuelo, 1264, Centro, Porto Alegre, RS</span><span data-cfg="horarios">Segunda a sexta, 7h às 18h30 · Sábado, 9h às 12h</span></div>
-        <div><strong>Equipe</strong><span>Dra. Raisa Lisoski · CRO-RS 26520</span><span>Dr. Cilon Lisoski · CRO-RS 9403</span></div>
+        <div><strong>Endereço</strong><span>Rua Riachuelo, 1264<br>Centro, Porto Alegre, RS</span><span>Seg a sex, 7h às 18h30<br>Sábado, 9h às 12h</span></div>
+        <div><strong>Equipe</strong><span class="who">Dra. Raisa Lisoski<small>CRO-RS 26520</small></span><span class="who">Dr. Cilon Lisoski<small>CRO-RS 9403</small></span></div>
       </div>
     </div>
     <div class="ftr-bottom">
