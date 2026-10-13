@@ -1,0 +1,10 @@
+SITE ODONTOLOGIA RIACHUELO
+
+Publicado pelo GitHub Pages (arquivo CNAME = www.odontologiariachuelo.com.br).
+O site antigo (Grillz POA) está guardado no ramo "site-antigo".
+
+EDITAR: tudo fica no bloco CONFIG, no fim do index.html
+- whatsapp, endereco, horarios, cro
+- agenda: horários oferecidos por dia da semana
+- procedimentos, antesDepois, galeria, equipe (fotos na pasta assets/)
+- assistente: perguntas e respostas do assistente virtual
