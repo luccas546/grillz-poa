@@ -379,6 +379,9 @@ textarea{resize:vertical;min-height:90px}
 .ftr{border-top:1px solid var(--line);padding-block:64px 40px;font-size:15px;color:var(--ash);background:rgba(0,0,0,.6)}
 .ftr-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;align-items:flex-start}
 .ftr-top img{height:120px;width:auto}
+.ftr-brand{display:grid;gap:18px;max-width:340px}
+.ftr-brand p{font-family:var(--f-display);font-style:italic;font-size:clamp(24px,2.4vw,30px);line-height:1.2;color:var(--pearl)}
+@media (min-width:761px){.ftr{padding-bottom:110px}}
 .ftr-cols{display:flex;flex-wrap:wrap;gap:48px}
 .ftr-cols div{display:grid;gap:6px;align-content:start}
 .ftr-cols strong{color:var(--pearl);font-weight:500}
@@ -774,11 +777,11 @@ textarea{resize:vertical;min-height:90px}
 <footer class="ftr">
   <div class="wrap">
     <div class="ftr-top">
-      <img src="assets/logo-branco.png" alt="Odontologia Riachuelo" width="122" height="120">
+      <div class="ftr-brand"><img src="assets/logo-branco.png" alt="Odontologia Riachuelo" width="122" height="120"><p>Odontologia feita com amor e cuidado em cada detalhe.</p></div>
       <div class="ftr-cols">
         <div><strong>Contato</strong><span data-cfg="whatsappFmt">(51) 98037-6259</span><a href="https://www.instagram.com/odontologiariachuelo/" target="_blank" rel="noopener">Instagram</a></div>
         <div><strong>Endereço</strong><span data-cfg="endereco">Rua Riachuelo, 1264, Centro, Porto Alegre, RS</span><span data-cfg="horarios">Segunda a sexta, 7h às 18h30 · Sábado, 9h às 12h</span></div>
-        <div><strong>Responsável técnica</strong><span data-cfg="dentista">Dra. Raisa Lisoski</span><span data-cfg="cro">CRO-RS 26520</span></div>
+        <div><strong>Equipe</strong><span>Dra. Raisa Lisoski · CRO-RS 26520</span><span>Dr. Cilon Lisoski · CRO-RS 9403</span></div>
       </div>
     </div>
     <div class="ftr-bottom">
