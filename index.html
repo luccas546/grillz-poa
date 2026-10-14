@@ -514,7 +514,7 @@ textarea{resize:vertical;min-height:90px}
     <a class="logo" href="#topo" aria-label="Odontologia Riachuelo, início"><img src="assets/logo-branco.png" alt="Odontologia Riachuelo" width="53" height="52"></a>
     <nav class="nav" id="nav" aria-label="Seções">
       <a href="#procedimentos">Procedimentos</a>
-      <a href="#antes-depois">Antes e depois</a>
+      <a href="#antes-depois">Transformações</a>
       <a href="#galeria">Galeria</a>
       <a href="#equipe">Equipe</a>
       <a href="#assistente">Assistente</a>
@@ -540,7 +540,7 @@ textarea{resize:vertical;min-height:90px}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
             Agendar avaliação
           </a>
-          <a class="btn ghost" href="#antes-depois">Ver antes e depois</a>
+          <a class="btn ghost" href="#antes-depois">Ver transformações</a>
         </div>
         <div class="hero-facts"><span>Agendamento online</span><span>Feito por dentista</span><span>Planejamento individual</span></div>
         <button type="button" class="hero-bot" data-bot-book><span class="dot"></span><span><b>Assistente virtual online</b> · agende sua avaliação em 1 minuto</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
@@ -554,7 +554,7 @@ textarea{resize:vertical;min-height:90px}
             <p><span data-cfg="cro">CRO-RS 26520</span></p>
           </div>
         </div>
-        <a class="chip c1" href="#antes-depois"><img src="assets/ad5-depois.jpg" alt=""><span><b>Lentes em resina</b><small>Veja o antes e depois</small></span></a>
+        <a class="chip c1" href="#antes-depois"><img src="assets/ad5-depois.jpg" alt=""><span><b>Lentes em resina</b><small>Veja transformações</small></span></a>
         <a class="chip c2" href="#galeria"><img src="assets/paciente1 (1).jpeg" alt=""><span><b>Joias e grillz</b><small>Trabalhos reais</small></span></a>
       </div>
     </div>
@@ -617,14 +617,14 @@ textarea{resize:vertical;min-height:90px}
   <section class="sec ba" id="antes-depois" aria-labelledby="ba-t">
     <div class="wrap">
       <div class="sec-head rv">
-        <h2 id="ba-t"><span class="eyebrow">resultados</span>Antes e depois</h2>
-        <p>Lentes em resina feitas na clínica. Imagens publicadas com autorização dos pacientes. Cada resultado depende do caso de cada pessoa.</p>
+        <h2 id="ba-t"><span class="eyebrow">casos da clínica</span>Transformações</h2>
+        <p>Casos tratados na clínica, publicados com autorização dos pacientes. Cada tratamento é planejado de forma individual e os resultados variam de pessoa para pessoa.</p>
       </div>
       <div class="ba-grid">
         <div class="rv">
           <div class="pair" id="compare">
-            <figure><img id="baBefore" alt="Antes do tratamento"><figcaption>Antes</figcaption></figure>
-            <figure class="aft"><img id="baAfter" alt="Depois do tratamento com lentes em resina"><figcaption>Depois</figcaption></figure>
+            <figure><img id="baBefore" alt="Foto do sorriso no início do tratamento"></figure>
+            <figure class="aft"><img id="baAfter" alt="Foto do sorriso ao fim do tratamento com lentes em resina"></figure>
             <span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
           <p class="ba-hint">Toque em uma foto para ampliar</p>
@@ -1191,9 +1191,9 @@ const procApi = (function explorer() {
     const b = el("button", { type: "button" }, [el("img", { src: srcList(c.depois)[0], alt: "", loading: "lazy" }), el("span", {}, [el("b", { textContent: c.titulo }), el("small", { textContent: c.sub })])]);
     b.onclick = () => load(i, true); thumbs.append(b);
   });
-  const zb = zoomList.push({ src: L[0].antes, cap: L[0].titulo + " · antes" }) - 1, za = zoomList.push({ src: L[0].depois, cap: L[0].titulo + " · depois" }) - 1;
-  before.parentNode.onclick = () => { zoomList[zb] = { src: L[cur].antes, cap: L[cur].titulo + " · antes" }; openLb(zb); };
-  after.parentNode.onclick = () => { zoomList[za] = { src: L[cur].depois, cap: L[cur].titulo + " · depois" }; openLb(za); };
+  const zb = zoomList.push({ src: L[0].antes, cap: L[0].titulo }) - 1, za = zoomList.push({ src: L[0].depois, cap: L[0].titulo }) - 1;
+  before.parentNode.onclick = () => { zoomList[zb] = { src: L[cur].antes, cap: L[cur].titulo }; openLb(zb); };
+  after.parentNode.onclick = () => { zoomList[za] = { src: L[cur].depois, cap: L[cur].titulo }; openLb(za); };
   let x0 = null;
   pair.addEventListener("touchstart", e => x0 = e.touches[0].clientX, { passive: true });
   pair.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 60) load(cur + (dx < 0 ? 1 : -1), true); x0 = null; });
